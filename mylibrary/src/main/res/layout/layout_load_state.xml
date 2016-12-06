@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/load_state_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/load_failed_container_height">
+
+    <!--加载进度框-->
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/loading_progressbar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        app:mlpb_arrow_height="5dp"
+        app:mlpb_arrow_width="10dp"
+        app:mlpb_enable_circle_background="true"
+        app:mlpb_progress_stoke_width="5dp"
+        app:mlpb_progress_text_visibility="invisible"
+        app:mlpb_show_arrow="true" />
+
+    <!--加载失败的UI-->
+    <LinearLayout
+        android:id="@+id/ll_load_failed_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/net_failed" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/net_error_info" />
+
+        <!--重试-->
+        <com.rey.material.widget.Button xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btn_retry"
+            style="@style/FlatColorButtonRippleStyle.Blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_button_blue"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:text="@string/retry"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_normal_big"
+            app:rd_delayClick="afterRelease" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/layout_no_data"
+        layout="@layout/layout_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

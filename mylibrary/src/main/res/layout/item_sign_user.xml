@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_item_sign_blue"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv_preview"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:background="@drawable/loading"
+                fresco:actualImageScaleType="centerInside"
+                fresco:placeholderImage="@drawable/loading_fresco"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_sign_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_normal_big"/>
+
+                <TextView
+                    android:id="@+id/tv_sign_category_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_sign_name"
+                    android:paddingTop="5dp"
+                    android:textSize="@dimen/ts_normal_small"/>
+
+                <TextView
+                    android:id="@+id/tv_product_owner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_sign_category_name"
+                    android:paddingTop="5dp"
+                    android:text="@string/sign_notice"
+                    android:textColor="#c3c3c3"
+                    android:textSize="12sp"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_finish_container"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+
+                    <com.rey.material.widget.TextView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/tv_imitate"
+                        style="@style/FlatColorButtonRippleStyle.Green"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_green"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/start_imitate"
+                        android:textColor="@color/white"/>
+
+                    <com.rey.material.widget.TextView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/tv_watch"
+                        style="@style/FlatColorButtonRippleStyle.Blue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_blue"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/watch_video"
+                        android:textColor="@color/white"
+                        app:rd_delayClick="afterRelease"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_designing_container"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+
+                    <com.rey.material.widget.TextView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/tv_designing"
+                        style="@style/FlatColorButtonRippleStyle.Orange"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/bg_button_designing"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/designer_designing"
+                        android:textColor="@color/white"
+                        app:rd_delayClick="afterRelease"
+                        app:rd_enable="false"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sign_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_item_sign_name_blue"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/blue3"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/img_weixin_public"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_item_sign_blue"
+            android:contentDescription="@string/app_name"
+            android:padding="2dp"
+            android:src="@drawable/weixin_public"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_content_comment"
+            android:padding="10dp"
+            android:textColor="@android:color/darker_gray"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

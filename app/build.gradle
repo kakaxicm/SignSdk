@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.chenming.test"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile(name:'mylibrary-debug', ext:'aar')
+//    compile project(':mylibrary')
+    // 进度条
+    compile 'com.lsjwzh:materialloadingprogressbar:0.5.6-RELEASE'
+    // Json
+    compile 'com.google.code.gson:gson:2.4'
+    // xUtils 用于网络请求
+    compile 'com.jiechic.library:xUtils:2.6.14'
+    // 侧滑返回
+    compile 'com.loopeer.android.thirdparty:swipe-back-layout:1.0'
+    // material设计
+    compile 'com.github.rey5137:material:1.1.1'
+    // facebook的图片加载
+    compile 'com.facebook.fresco:fresco:0.5.1'
+    // ping++
+    compile 'com.pingxx:pingpp-core:2.1.6'
+    compile 'com.pingxx:pingpp-alipay:2.1.6'
+    compile 'com.pingxx:pingpp-wxpay:2.1.5'
+    // RecyclerView
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    // 签字板
+    compile 'com.github.gcacace:signature-pad:1.0.1'
+}

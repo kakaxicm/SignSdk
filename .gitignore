@@ -47,7 +47,7 @@ local.properties
 
 # IntelliJ project files
 .idea
-*.iml
+app/app.iml
 out
 gen
 

@@ -1,0 +1,168 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+version = "1.0.0"
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "native-lib"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    // Gson
+    compile 'com.google.code.gson:gson:2.4'
+    // xUtils 用于网络请求
+    compile 'com.jiechic.library:xUtils:2.6.14'
+    // 侧滑返回
+    compile 'com.loopeer.android.thirdparty:swipe-back-layout:1.0'
+    // material设计
+    compile 'com.github.rey5137:material:1.1.1'
+    // 进度条
+    compile 'com.lsjwzh:materialloadingprogressbar:0.5.6-RELEASE'
+    // ping++
+    compile 'com.pingxx:pingpp-core:2.1.6'
+    compile 'com.pingxx:pingpp-alipay:2.1.6'
+//    compile 'com.pingxx:pingpp-wxpay:2.1.5'
+    // facebook的图片加载
+    compile 'com.facebook.fresco:fresco:0.5.1'
+    // RecyclerView
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    // 签字板
+    compile 'com.github.gcacace:signature-pad:1.0.1'
+}
+
+/**
+ * 发布到jcenter
+ */
+def siteUrl = 'https://github.com/kakaxicm/SignSdk'      // 项目的主页
+def gitUrl = 'https://github.com/kakaxicm/SignSdk.git'   // Git仓库的url
+group = "com.qicode" // Maven Group ID for the artifact，一般填你唯一的包名
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                // Add your description here
+                name '启码时代专家签名SDK'  //项目描述
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'kakxicm'       //填写开发者基本信息
+                        name 'kakaxicm'
+                        email '583431043@qq.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+/**
+ * 文档找不到类解决
+ */
+android.libraryVariants.all { variant ->
+    println variant.javaCompile.classpath.files
+    if(variant.name == 'release') { //我们只需 release 的 javadoc
+        task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+            // title = ''
+            // description = ''
+            source = variant.javaCompile.source
+            classpath = files(variant.javaCompile.classpath.files, project.android.getBootClasspath())
+            options {
+                encoding "utf-8"
+                links "http://docs.oracle.com/javase/7/docs/api/"
+                linksOffline "http://d.android.com/reference", "${android.sdkDirectory}/docs/reference"
+            }
+            exclude '**/BuildConfig.java'
+            exclude '**/R.java'
+        }
+        task("javadoc${variant.name.capitalize()}Jar", type: Jar, dependsOn: "generate${variant.name.capitalize()}Javadoc") {
+            classifier = 'javadoc'
+            from tasks.getByName("generate${variant.name.capitalize()}Javadoc").destinationDir
+        }
+        artifacts {
+            archives tasks.getByName("javadoc${variant.name.capitalize()}Jar")
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+    user = 'qicodetech'
+    key = '2fa8dd35507d42fa4736025bf41993c57a05ea5b'
+    configurations = ['archives']
+    pkg {
+        repo = "maven"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
+        name = "qicode-sign-sdk"  //发布到Bintray上的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+
+

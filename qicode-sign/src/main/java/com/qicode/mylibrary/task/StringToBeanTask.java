@@ -7,7 +7,6 @@ import com.qicode.mylibrary.model.BaseResponse;
 
 /**
  * Created by star on 15/6/5.
- * <p/>
  * 根据string返回bean
  */
 public class StringToBeanTask<T> extends AsyncTask<String, Integer, T> {

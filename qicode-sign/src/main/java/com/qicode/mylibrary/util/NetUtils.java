@@ -25,9 +25,7 @@ import java.util.List;
 
 /**
  * Created by huyongsheng on 2015/3/18.
- * <p/>
  * 用于处理网络相关
- * <p/>
  * 已添加get请求相关
  */
 public class NetUtils {

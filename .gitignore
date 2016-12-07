@@ -9,7 +9,9 @@ tmp/
 *.bak
 *.swp
 *~.nib
+*.iml
 local.properties
+gradle.properties
 .settings/
 .loadpath
 

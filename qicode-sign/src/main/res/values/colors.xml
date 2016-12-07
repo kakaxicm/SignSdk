@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="transparent_white_60">#99ffffff</color>
+    <color name="transparent_white_70">#b2ffffff</color>
+    <color name="black">#000000</color>
+
+    <!-- dark -->
+    <color name="dark0">#28251f</color>
+
+    <!-- gray -->
+    <color name="gray0">#666666</color>
+    <color name="gray1">#bcbcbc</color>
+    <color name="gray2">#f2f2f2</color>
+    <color name="gray3">#a9a9a9</color>
+    <color name="gray4">#808080</color>
+    <color name="gray5">#333333</color>
+    <color name="gray6">#f0f0f0</color>
+    <color name="gray7">#f3f3f3</color>
+    <color name="gray8">#eaeaea</color>
+    <color name="gray9">#cccccc</color>
+    <color name="gray10">#afafaf</color>
+    <color name="gray11">#e5e5e5</color>
+
+    <!-- red -->
+    <color name="red0">#ff0000</color>
+
+    <!-- blue -->
+    <color name="blue0">#8fa8e5</color>
+    <color name="blue1">#6580c3</color>
+    <color name="blue2">#1e65a1</color>
+    <color name="blue3">#54b0fe</color>
+    <color name="transparent_blue3_20">#3354b0fe</color>
+    <color name="transparent_blue3_30">#4c54b0fe</color>
+    <color name="transparent_blue3_50">#8054b0fe</color>
+    <color name="transparent_blue3_70">#b254b0fe</color>
+
+    <!-- yellow -->
+    <color name="yellow0">#eec73f</color>
+    <color name="yellow1">#d6b339</color>
+
+    <!-- orange -->
+    <color name="orange0">#e9a826</color>
+    <color name="orange1">#e3ac28</color>
+    <color name="orange2">#e8a825</color>
+    <color name="orange3">#e4ad03</color>
+    <color name="orange4">#df5f25</color>
+    <color name="orange5">#f57933</color>
+    <color name="transparent_orange5_50">#80f57933</color>
+    <color name="transparent_orange5_70">#b2f57933</color>
+
+    <!-- green -->
+    <color name="green0">#56f780</color>
+    <color name="transparent_green0_50">#8056f780</color>
+    <color name="transparent_green0_70">#b256f780</color>
+
+    <color name="coupon_green">#ff7ed575</color>
+    <color name="coupon_red">#fff087b6</color>
+
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black_01">#01000000</color>
+    <color name="transparent_black_20">#33000000</color>
+    <color name="transparent_black_10">#1a000000</color>
+    <color name="transparent_black_15">#26000000</color>
+    <color name="transparent_black_30">#4c000000</color>
+    <color name="transparent_black_60">#99000000</color>
+    <color name="transparent_purple0_80">#ccff00cc</color>
+    <color name="transparent_purple0_90">#e5ff00cc</color>
+    <color name="transparent_purple1_80">#ccff0099</color>
+    <color name="transparent_purple1_90">#e5ff0099</color>
+    <color name="pop_window_more_item_press">#11F7F1F0</color>
+
+    <!-- 画笔颜色 -->
+    <color name="paint_pink">#ff4e9d</color>
+    <color name="paint_blue">#4eaeff</color>
+    <color name="paint_green">#37dd1c</color>
+    <color name="paint_orange">#f3793d</color>
+    <color name="paint_gray">#202020</color>
+
+    <!-- material -->
+    <color name="colorPrimary">#FF03A9F4</color>
+    <color name="colorPrimaryDark">#ff0171c9</color>
+    <color name="colorAccent">#FF00E5FF</color>
+    <color name="colorControlNormal">#FF78909C</color>
+    <color name="colorControlActivated">#FF03A9F4</color>
+    <color name="colorSwitchThumbNormal">#FF78909C</color>
+    <array name="progress_colors">
+        <item>#FF3F8AF8</item>
+        <item>#FFD8433C</item>
+        <item>#FFF2AF3A</item>
+        <item>#FF279B5E</item>
+    </array>
+    <array name="in_colors">
+        <item>#FFB5D4FF</item>
+        <item>#FFDEEAFC</item>
+        <item>#FFFAFFFE</item>
+    </array>
+    <color name="rb_checked">#FF4CAF50</color>
+    <color name="rb_unchecked">#FF6D6D6D</color>
+    <color name="rb_disable">#FFB0B0B0</color>
+    <color name="tpi_checked">#FFFFFFFF</color>
+    <color name="tpi_unchecked">#99FFFFFF</color>
+    <color name="et_divider_focused">@color/colorControlActivated</color>
+    <color name="et_divider_not_focused">#FF6D6D6D</color>
+    <color name="et_divider_disable">#FFC1C1C1</color>
+    <color name="divider_color">#e5e5e5</color>
+
+    <color name="red">#ff0000</color>
+</resources>

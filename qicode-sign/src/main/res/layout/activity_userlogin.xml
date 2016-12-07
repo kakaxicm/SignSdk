@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_head"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/gray8">
+
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            android:src="@drawable/icon_phone_gray"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/iv_phone"
+            android:layout_toRightOf="@+id/iv_phone"
+            android:background="@color/gray0"/>
+
+        <EditText
+            android:id="@+id/et_user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_phone"
+            android:layout_toRightOf="@+id/iv_phone"
+            android:background="@null"
+            android:hint="@string/hint_input_phone_number"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:textColor="@color/gray5"
+            android:textSize="@dimen/ts_normal_normal"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_security_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/get_auth_code"
+            android:layout_toStartOf="@+id/get_auth_code"
+            android:background="@color/gray8">
+
+            <ImageView
+                android:id="@+id/iv_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/icon_security_gray"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/iv_security"
+                android:layout_toRightOf="@+id/iv_security"
+                android:background="@color/gray0"/>
+
+            <EditText
+                android:id="@+id/et_auth_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_security"
+                android:layout_toRightOf="@+id/iv_security"
+                android:background="@null"
+                android:hint="@string/input_identify_code"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/gray5"
+                android:textSize="@dimen/ts_normal_normal"/>
+        </RelativeLayout>
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/get_auth_code"
+            style="@style/FlatColorButtonRippleStyle.Blue"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rl_security_code"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/rl_security_code"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/get_auth_code"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_normal"
+            app:rd_delayClick="afterRelease"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/tv_register_desc"
+            android:layout_toRightOf="@+id/tv_register_desc"
+            android:background="@color/gray0"/>
+
+        <TextView
+            android:id="@+id/tv_register_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/register_desc"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/tv_register_desc"
+            android:layout_toStartOf="@+id/tv_register_desc"
+            android:background="@color/gray0"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <com.rey.material.widget.Button
+            android:id="@+id/bt_register"
+            style="@style/FlatColorButtonRippleStyle.Blue"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_button_blue"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="15dp"
+            android:text="@string/start_sign"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_normal_bigger"
+            app:rd_delayClick="afterRelease"/>
+    </RelativeLayout>
+
+</LinearLayout>

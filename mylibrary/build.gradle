@@ -24,6 +24,11 @@ android {
         }
     }
     useLibrary 'org.apache.http.legacy'
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {

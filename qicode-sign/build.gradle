@@ -150,14 +150,13 @@ artifacts {
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
-//    user = properties.getProperty("bintray.user")
-//    key = properties.getProperty("bintray.apikey")
-    user = 'qicodetech'
-    key = '2fa8dd35507d42fa4736025bf41993c57a05ea5b'
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        repo = "maven"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
-        name = "qicode-sign-sdk"  //发布到Bintray上的项目名字
+        userOrg = "qicodetech"
+        repo = "AndroidSignSdk"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
+        name = "qicode-sign"  //发布到Bintray上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

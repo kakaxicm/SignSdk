@@ -3,7 +3,6 @@ package com.qicode.mylibrary.constant;
 import android.content.Context;
 
 import com.lidroid.xutils.http.RequestParams;
-import com.qicode.mylibrary.JniUtil;
 import com.qicode.mylibrary.util.AppUtil;
 import com.qicode.mylibrary.util.DeviceUtils;
 import com.qicode.mylibrary.util.MD5Utils;
@@ -35,9 +34,9 @@ public class NetConstant {
 
     // the sign host in different environment
     private static final String LocalUrl = "http://192.168.1.103:10000/";
-    private static final String TestUrl = "http://sign.test.qima.tech/";
-    private static final String ProductionUrl = "http://sign.qima.tech/";
-    private static final String PreviewUrl = "http://sign.preview.qima.tech/";
+    private static final String TestUrl = "http://www.test.artsignpro.com/";
+    private static final String ProductionUrl = "http://www.artsignpro.com/";
+    private static final String PreviewUrl = "http://www.preview.artsignpro.com/";
 
     // the main host of sign
     private static String mHost;

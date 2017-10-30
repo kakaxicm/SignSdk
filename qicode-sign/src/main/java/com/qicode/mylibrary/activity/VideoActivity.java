@@ -27,7 +27,6 @@ public class VideoActivity extends BaseActivity {
     private String mUrl;
     private android.widget.VideoView mVideoView;
     private ProgressBar mProgressBar;
-    private boolean mCanDownload;
 
     /****
      * 视频下载监听UI
@@ -68,7 +67,6 @@ public class VideoActivity extends BaseActivity {
     protected void getIntentData() {
         mUrl = getIntent().getStringExtra(AppConstant.INTENT_VIDEO_URL);
         mVideoName = getIntent().getStringExtra(AppConstant.INTENT_VIDEO_NAME);
-        mCanDownload = getIntent().getBooleanExtra(AppConstant.INTENT_CAN_DOWNLOAD_VIDEO, false);
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.io.FileNotFoundException;
 /**
  * Created by kakaxicm on 2015/11/21.
  */
-public class SignProductPreviewActivity extends Activity implements View.OnClickListener{
+public class SignProductPreviewActivity extends BaseActivity {
     private SimpleDraweeView mPreviewSdv;
     private View mSaveImageBtn;
     private String mUrl;
@@ -29,23 +29,16 @@ public class SignProductPreviewActivity extends Activity implements View.OnClick
     private Context mContext;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(setLayoutViewId());
-        mContext = this;
-        getIntentData();
-        attachData();
-        initContent();
-    }
-
     protected int setLayoutViewId() {
         return R.layout.activity_img_preview;
     }
 
+    @Override
     protected void getIntentData() {
         mUrl = getIntent().getStringExtra(AppConstant.INTENT_ONLINE_IMAGE_URL);
     }
 
+    @Override
     protected void initContent() {
         mPreviewSdv = (SimpleDraweeView) findViewById(R.id.sdv_preview);
         mPreviewSdv.setAspectRatio(1.33f);
@@ -54,6 +47,7 @@ public class SignProductPreviewActivity extends Activity implements View.OnClick
         mSaveImageBtn.setOnClickListener(this);
     }
 
+    @Override
     protected void attachData() {
         mSaveFileName = MD5Utils.getMD5(mUrl);
     }

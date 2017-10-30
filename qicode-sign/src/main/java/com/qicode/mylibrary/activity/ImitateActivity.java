@@ -1,6 +1,5 @@
 package com.qicode.mylibrary.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,7 +18,7 @@ import com.qicode.mylibrary.util.AnimatorUtil;
 import com.qicode.mylibrary.util.SizeUtils;
 import com.rey.material.widget.FloatingActionButton;
 
-public class ImitateActivity extends Activity implements View.OnClickListener{
+public class ImitateActivity extends BaseActivity {
     private String mName;
     private String mImageUrl;
 
@@ -47,34 +46,26 @@ public class ImitateActivity extends Activity implements View.OnClickListener{
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        initData();
-        super.onCreate(savedInstanceState);
-        mContext = this;
-        setContentView(setLayoutViewId());
-        getIntentData();
-        initContent();
-        attachData();
-    }
-
     protected void getIntentData() {
         Intent intent = getIntent();
         mName = intent.getStringExtra(AppConstant.INTENT_NAME);
         mImageUrl = intent.getStringExtra(AppConstant.INTENT_IMAGE_URL);
     }
 
+    @Override
     protected void initData() {
         mControlState = ControlState.Extend;
         // 隐藏android系统的状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+    @Override
     protected int setLayoutViewId() {
         return R.layout.activity_imitate;
     }
 
+    @Override
     protected void initContent() {
-        Log.e("Activity", "ImitateActivity ---- OnCreate");
         // 签名
         mSignImageView = (SimpleDraweeView) findViewById(R.id.iv_sign);
         mSignTextView = (TextView) findViewById(R.id.tv_sign);
@@ -109,17 +100,7 @@ public class ImitateActivity extends Activity implements View.OnClickListener{
                 paintGrayView, paintSmallerView, paintSmallView, paintNormalView, paintBigView, paintBiggerView);
     }
 
-    /**
-     * 统一为各种view添加点击事件
-     */
-    protected void setOnClickListener(View... views) {
-        for (View view : views) {
-            if (view != null) {
-                view.setOnClickListener(this);
-            }
-        }
-    }
-
+    @Override
     protected void attachData() {
         mSignImageView.setImageURI(Uri.parse(mImageUrl));
     }

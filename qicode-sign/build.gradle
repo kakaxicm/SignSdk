@@ -39,7 +39,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     // Gson
     compile 'com.google.code.gson:gson:2.4'
@@ -58,7 +59,7 @@ dependencies {
     // facebook的图片加载
     compile 'com.facebook.fresco:fresco:0.5.1'
     // RecyclerView
-    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     // 签字板
     compile 'com.github.gcacace:signature-pad:1.0.1'
 }
@@ -154,7 +155,8 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        userOrg = "qicodetech"
+//        userOrg = "qicodetech"
+        userOrg = "beijingqicode"
         repo = "AndroidSignSdk"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
         name = "qicode-sign"  //发布到Bintray上的项目名字
         websiteUrl = siteUrl

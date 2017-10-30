@@ -36,11 +36,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     //    compile 'com.qicode.sdk:qicode-sign:1.0.2'
-    //    compile(name:'qicode-sign-release', ext:'aar')
-    compile project(':qicode-sign')
+    compile(name:'qicode-sign-release', ext:'aar')
+//    compile project(':qicode-sign')
     // 进度条
     compile 'com.lsjwzh:materialloadingprogressbar:0.5.6-RELEASE'
     // Json
@@ -58,7 +58,7 @@ dependencies {
     compile 'com.pingxx:pingpp-alipay:2.1.6'
     compile 'com.pingxx:pingpp-wxpay:2.1.5'
     // RecyclerView
-    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     // 签字板
     compile 'com.github.gcacace:signature-pad:1.0.1'
 }

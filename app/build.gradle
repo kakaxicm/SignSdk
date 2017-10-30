@@ -11,17 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
-        debug {
-            // No debug config
-        }
-        release {
-            storeFile file("../sign")
-            storePassword "123456"
-            keyAlias "ArtSign"
-            keyPassword "123456"
-        }
-    }
+
     buildTypes {
         release {
             minifyEnabled false

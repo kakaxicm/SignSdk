@@ -3,15 +3,24 @@ package com.qicode.mylibrary.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.lidroid.xutils.http.HttpHandler;
 import com.qicode.mylibrary.R;
 import com.qicode.mylibrary.constant.AppConstant;
 import com.qicode.mylibrary.util.DialogUtils;
+import com.qicode.mylibrary.util.SizeUtils;
+import com.qicode.mylibrary.widget.StatusBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,17 +42,63 @@ public abstract class BaseActivity extends SwipeBackActivity implements OnClickL
     protected Activity mActivity;
     protected Context mContext;
 
+    int THEME_COLOR = Color.parseColor("#54b0fe");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         super.onCreate(savedInstanceState);
         mActivity = this;
         mContext = this;
         getIntentData();
         initBaseData();
         setContentView();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){//5.0以上
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().setStatusBarColor(THEME_COLOR);
+        }else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){//4.4-5.0
+            immerseStatusBar();
+        }
         initTitle();
         initContent();
         attachData();
+    }
+
+    /**
+     * 沉浸状态栏处理
+     */
+    private void immerseStatusBar(){
+        //获取windowphone下的decorView
+        ViewGroup decorView = (ViewGroup) getWindow().getDecorView();
+        int count = decorView.getChildCount();
+        //判断是否已经添加了statusBarView
+        if (count > 0 && decorView.getChildAt(count - 1) instanceof StatusBarView) {
+            decorView.getChildAt(count - 1).setBackgroundColor(THEME_COLOR);
+        } else {
+            //新建一个和状态栏高宽的view
+            StatusBarView statusView = createStatusBarView(THEME_COLOR);
+            decorView.addView(statusView);
+        }
+        ViewGroup rootView = (ViewGroup) ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
+        //rootview不会为状态栏留出状态栏空间
+        ViewCompat.setFitsSystemWindows(rootView, true);
+        rootView.setClipToPadding(true);
+    }
+
+    /**
+     * 创建占位View
+     * @param color
+     * @return
+     */
+    private StatusBarView createStatusBarView(int color) {
+        // 绘制一个和状态栏一样高的矩形
+        StatusBarView statusBarView = new StatusBarView(this);
+        LinearLayout.LayoutParams params =
+                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, SizeUtils.getStatusBarHeight(this));
+        statusBarView.setLayoutParams(params);
+        statusBarView.setBackgroundColor(color);
+        return statusBarView;
     }
 
     @Override

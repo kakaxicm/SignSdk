@@ -419,6 +419,7 @@ public class StickerExpertSignGridAdapter extends RecyclerView.Adapter<RecyclerV
             SignListResponse.ResultEntity.ExpertSignsEntity rightExpertSignItem = data.getRightExpertSignItem();
 
             // 左边预览图
+            leftSdv.setAspectRatio(1.0f);
             leftSdv.setImageURI(Uri.parse(leftExpertSignItem.getImage_url()));
 
             String signName = leftExpertSignItem.getSign_name();
@@ -430,6 +431,7 @@ public class StickerExpertSignGridAdapter extends RecyclerView.Adapter<RecyclerV
             containerLeft.setOnClickListener(this);
             //右边有可能是空
             if (rightExpertSignItem != null) {
+                rightSdv.setAspectRatio(1.0f);
                 rightSdv.setImageURI(Uri.parse(rightExpertSignItem.getImage_url()));
 
                 signName = rightExpertSignItem.getSign_name();

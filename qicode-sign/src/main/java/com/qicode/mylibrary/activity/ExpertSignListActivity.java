@@ -14,15 +14,9 @@ import com.qicode.mylibrary.util.SizeUtils;
  * Created by chenming on 16/11/24.
  */
 
-public class ExpertSignListActivity extends FragmentActivity {
+public class ExpertSignListActivity extends BaseActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(setLayoutViewId());
-        initContent();
-    }
-
-    private void initContent() {
+    protected void initContent() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.ll_content, new ExpertSignListFragment());
         fragmentTransaction.commit();
@@ -34,7 +28,8 @@ public class ExpertSignListActivity extends FragmentActivity {
         titleTv.setPadding((int) SizeUtils.dp2Px(this, 10), 0, 0, 0);
     }
 
-    private int setLayoutViewId() {
+    @Override
+    protected int setLayoutViewId() {
         return R.layout.activity_expert_sign_list;
     }
 }

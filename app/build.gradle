@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.3'
     defaultConfig {
         applicationId "com.chenming.test"
         minSdkVersion 15
@@ -10,6 +10,17 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        debug {
+            // No debug config
+        }
+        release {
+            storeFile file("../sign")
+            storePassword "123456"
+            keyAlias "ArtSign"
+            keyPassword "123456"
+        }
     }
     buildTypes {
         release {
@@ -35,10 +46,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
-    compile(name:'qicode-sign-release', ext:'aar')
-//    compile project(':mylibrary')
+    //    compile 'com.qicode.sdk:qicode-sign:1.0.2'
+    //    compile(name:'qicode-sign-release', ext:'aar')
+    compile project(':qicode-sign')
     // 进度条
     compile 'com.lsjwzh:materialloadingprogressbar:0.5.6-RELEASE'
     // Json

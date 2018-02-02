@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
@@ -25,9 +26,7 @@ import com.qicode.mylibrary.widget.StatusBarView;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
-
-public abstract class BaseActivity extends SwipeBackActivity implements OnClickListener {
+public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
     protected static final String TAG = BaseActivity.class.getSimpleName();
     private static final int DoubleBackTime = 2000;
     // 页面根节点
